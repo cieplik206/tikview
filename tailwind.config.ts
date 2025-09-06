@@ -1,5 +1,4 @@
 import type { Config } from 'tailwindcss'
-import daisyui from 'daisyui'
 
 export default {
   content: [
@@ -56,17 +55,8 @@ export default {
       },
     },
   },
-  daisyui: {
-    themes: ["halloween"],
-    darkTheme: "halloween",
-    base: true,
-    styled: true,
-    utils: true,
-    prefix: "",
-    logs: false,
-    themeRoot: ":root",
-  },
+  // DaisyUI configuration moved to CSS file for Tailwind v4
   plugins: [
-    daisyui,
+    // daisyui plugin is now configured via @plugin directive in CSS
   ],
 } satisfies Config

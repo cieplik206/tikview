@@ -1,6 +1,10 @@
 @import "tailwindcss";
+
+/* DaisyUI v5 configuration for theme switching */
 @plugin "daisyui" {
-  themes: halloween --default;
+  themes: garden --default, halloween --prefersdark;
+  root: ":root";
+  logs: false;
 }
 
 /* Background Animation - DaisyUI theme handles most colors */
@@ -15,6 +19,24 @@ body::before {
               radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
+}
+
+/* Ensure theme switching works properly */
+[data-theme="garden"] {
+  color-scheme: light;
+  /* Override Garden theme colors to use Halloween's orange instead of pink */
+  --color-primary: oklch(77.48% 0.204 60.62); /* Halloween orange */
+  --color-primary-content: oklch(19.693% 0.004 196.779); /* Dark text on orange */
+  --color-secondary: oklch(65% 0.15 60); /* Lighter orange for secondary */
+  --color-accent: oklch(70% 0.18 45); /* Another orange shade for accent */
+  --color-info: oklch(70% 0.2 220);
+  --color-success: oklch(65% 0.25 140);
+  --color-warning: oklch(80% 0.25 80);
+  --color-error: oklch(65% 0.3 30);
+}
+
+[data-theme="halloween"] {
+  color-scheme: dark;
 }
 
 /* Global styles for TikView React */

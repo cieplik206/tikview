@@ -5,6 +5,20 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TikView</title>
+    <script>
+      // Prevent FOUC (Flash of Unstyled Content) by setting theme immediately
+      try {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        } else {
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.setAttribute('data-theme', prefersDark ? 'halloween' : 'garden');
+        }
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'garden');
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -13,7 +13,7 @@ export const DashboardLayout: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-base-100" data-theme="halloween">
+    <div className="min-h-screen bg-base-100">
       {/* Prefetch user data on mount - will cache forever until logout */}
       <UserDataPrefetch />
       

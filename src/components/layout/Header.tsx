@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useQueryClient } from '@tanstack/react-query';
 import { Button, StatusBadge } from '../ui';
 import { PollingIntervalSelector } from '../ui/PollingIntervalSelector';
+import { ThemeToggle } from '../ui/ThemeToggle';
 import { logout } from '../../store/slices/authSlice';
 
 interface HeaderProps {
@@ -62,6 +63,9 @@ const Header: React.FC<HeaderProps> = ({
         </div>
         
         <div className="flex items-center gap-2 w-full md:w-auto max-[400px]:flex-col max-[400px]:w-full sm:max-[768px]:flex-row">
+          {/* Theme Toggle */}
+          <ThemeToggle />
+          
           {/* Polling Interval Selector */}
           <PollingIntervalSelector />
           
